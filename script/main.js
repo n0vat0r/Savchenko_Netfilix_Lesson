@@ -17,6 +17,7 @@ const DBService = class  {
 new DBService().getTestData().then((renderCard));
 
 
+
 const renderCard = response => {
     console.log(response);
     tvShowsList.textContent = '';

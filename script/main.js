@@ -1,21 +1,7 @@
 
-// ТЕСТ
-<h1>Считаем кроликов</h1>
-
-<script type="text/javascript">
-
-    for(var i=1; i<=3; i++) {
-
-        alert("Из шляпы достали "+i+" кролика!")
-
-    }
-
-</script>
-
-
 // Меню
-const IMG_URL = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2';
-const API_KEY = 24%5 + 'e61d32c7f8095da04f6550d8cc3dd9' + 24%5;
+const IMG_URL = `https://image.tmdb.org/t/p/w185_and_h278_bestv2`;
+const API_KEY = 24%5 + `e61d32c7f8095da04f6550d8cc3dd9` + 24%5;
 const leftMenu = document.querySelector('.left-menu'),
      hamburger = document.querySelector('.hamburger'),
      tvShowsList = document.querySelector('.tv-shows__list'),
@@ -73,11 +59,11 @@ const DBService = class  {
         if (res.ok) {
             return res.json();
         } else {
-            throw new Error('Не удалось получить данные по адресу ${url}')
+            throw new Error(`Не удалось получить данные по адресу ${url}`)
         }
     }
     getTestData = async () => {
-        return  await this.getData('test.json')
+        return  await this.getData(`test.json`)
     }
 }
 new DBService().getTestData().then((renderCard));
@@ -102,7 +88,7 @@ const renderCard = response => {
     response.result.forEach(item => {
         const card = document.createElement('li');
         card.className = 'tv-shopw__item';
-        card.innerHTML = '
+        card.innerHTML = `
         <a href="#" class="tv-card">
         <span class="tv-card__vote">7.1</span>
         <img class="tv-card__img"
@@ -111,7 +97,7 @@ const renderCard = response => {
              alt="Звёздные войны. Войны клонов">
         <h4 class="tv-card__head">Звёздные войны. Войны клонов</h4>
     </a>
-        ';
+    `;
         tvShowsList.append(card);
     });
 };
